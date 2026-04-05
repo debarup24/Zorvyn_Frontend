@@ -1,5 +1,4 @@
 import { Route, Routes, useLocation } from "react-router-dom";
-import "./App.css";
 import Sidebar from "./components/common/Sidebar";
 import DashboardPage from "./pages/DashboardPage";
 import IncomePage from "./pages/IncomePage";

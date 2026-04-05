@@ -1,4 +1,33 @@
-# React + TypeScript + Vite
+# Zorvyn Frontend Assignment
+
+- [🔗 Live Preview](https://react.dev/learn/react-compiler/)
+
+Techstack :
+
+- React.js + TypeScript + TailwindCSS + Framer Motion + Recharts
+
+## Features
+
+- Dashboard Overview with Summary Cards (Reusable StatCards)
+- Time Based Visualization (Monthly Income or Expense, Balance Trend)
+- Categorical Visualization (Income Source Breakdown, Spending Breakdown)
+- Data Comparison Visualization - Income vs Expense graph
+- Role Based UI (Viewer and Admin)
+- Transaction List with Details : Integrated Mock API
+- Implemented pagination in transaction lists
+- Transaction Search : Implemented Debounce search
+- Handled Layout Shift with Shimmer or Loading effect
+- Insights Section
+- State Management with Context API as less data to handle
+- Responsive Design with Animations
+
+## Coding Approach
+
+- Highly focused on Code Reusability by creating reusable components such as StatCards (src/UI/cards/StatCards), Modals (src/UI/modals) etc.
+- Focus on writing readable & maintainable code by creating proper folder and file structure with reusable functions (e.g, created custom hooks (src/hook/useDebounce.ts) )
+- Avoid using any 3rd party UI library (like shadcnUI) instead created similar in-house UI components (e.g, src/UI/buttons/ActionBTN.tsx)
+
+# Setup - React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
@@ -17,9 +46,9 @@ If you are developing a production application, we recommend updating the config
 
 ```js
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(["dist"]),
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ["**/*.{ts,tsx}"],
     extends: [
       // Other configs...
 
@@ -34,40 +63,40 @@ export default defineConfig([
     ],
     languageOptions: {
       parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
         tsconfigRootDir: import.meta.dirname,
       },
       // other options...
     },
   },
-])
+]);
 ```
 
 You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
 ```js
 // eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+import reactX from "eslint-plugin-react-x";
+import reactDom from "eslint-plugin-react-dom";
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(["dist"]),
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ["**/*.{ts,tsx}"],
     extends: [
       // Other configs...
       // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
+      reactX.configs["recommended-typescript"],
       // Enable lint rules for React DOM
       reactDom.configs.recommended,
     ],
     languageOptions: {
       parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
         tsconfigRootDir: import.meta.dirname,
       },
       // other options...
     },
   },
-])
+]);
 ```

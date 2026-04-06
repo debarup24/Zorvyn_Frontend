@@ -4,14 +4,27 @@ import IncomeCategoryDistribution from "../components/income/IncomeCategoryDistr
 import IncomeSourceTable from "../components/income/IncomeSourceTable";
 import IncomeStatsCard from "../components/income/IncomeStatsCard";
 import { useAppData } from "../context/AppContext";
+import AddModal from "../UI/modals/AddModal/AddModals";
+import { TransactionForm } from "../UI/modals/AddModal/AddModalLogic";
 
 const IncomePage = () => {
-  const { isModalOpen } = useAppData();
+  const { isAdmin, isModalOpen, setIsModalOpen, handleAddIncome } =
+    useAppData();
   return (
     <div
       className={`flex-1 ${isModalOpen ? "overflow-hidden" : "overflow-auto"}  overflow-auto relative z-10`}
     >
       <Header title="Dashboard Overview" />
+
+      {isAdmin && (
+        <AddModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          title="Add New Income"
+        >
+          <TransactionForm onSubmit={handleAddIncome} type="income" />
+        </AddModal>
+      )}
 
       <main className="max-w-7xl mx-auto py-6 px-4 mt-8 lg:px-8">
         {/* STATS CARDS */}

@@ -1,11 +1,6 @@
 import { motion } from "framer-motion";
 import { Edit, Search, Trash2 } from "lucide-react";
 import ActionBTN from "../../UI/buttons/ActionBTN";
-import AddModal from "../../UI/modals/AddModal/AddModals";
-import {
-  TransactionForm,
-  type TransactionFormData,
-} from "../../UI/modals/AddModal/AddModalLogic";
 import { useState } from "react";
 import { MOCK_EXPENSE_LIST_DATA } from "../../data/mockData";
 import { useAppData } from "../../context/AppContext";
@@ -14,13 +9,11 @@ const TableHeader = ["Sources", "Categories", "Amount", "Date", "Action"];
 
 const ExpenseListTable = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const { isModalOpen, setIsModalOpen } = useAppData();
-  const [expenseData, setExpenseData] = useState(MOCK_EXPENSE_LIST_DATA);
+  const { isAdmin, setIsModalOpen, expenseData } = useAppData();
+
   const [filteredExpenseData, setFilteredExpenseData] = useState(
     MOCK_EXPENSE_LIST_DATA,
   );
-
-  const { isAdmin } = useAppData();
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const term = e.target.value.toLowerCase();
@@ -35,19 +28,6 @@ const ExpenseListTable = () => {
     setFilteredExpenseData(filtered);
   };
 
-  const handleAddTransaction = (data: TransactionFormData) => {
-    const newItem = {
-      id: Date.now(),
-      ...data,
-    };
-
-    const updatedData = [newItem, ...expenseData];
-
-    setExpenseData(updatedData);
-    setFilteredExpenseData(updatedData);
-
-    setIsModalOpen(false);
-  };
   return (
     <motion.div
       className="bg-gray-800 bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl p-6 border border-gray-700 mb-8"
@@ -82,16 +62,6 @@ const ExpenseListTable = () => {
           )}
         </div>
       </div>
-
-      {isAdmin && (
-        <AddModal
-          isOpen={isModalOpen}
-          onClose={() => setIsModalOpen(false)}
-          title="Add New Expense"
-        >
-          <TransactionForm onSubmit={handleAddTransaction} type="expense" />
-        </AddModal>
-      )}
 
       <div className="overflow-x-auto">
         <table className="min-w-full divide-y divide-gray-700">

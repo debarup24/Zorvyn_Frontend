@@ -56,7 +56,7 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({
   };
 
   const inputStyle =
-    "w-full bg-[#1e293b] border border-gray-700 rounded-lg p-2.5 text-white focus:ring-2 focus:ring-indigo-500 outline-none transition-all";
+    "w-full bg-[#1e293b] border border-gray-700 rounded-lg p-1.5 lg:p-2.5 text-white focus:ring-2 focus:ring-indigo-500 outline-none transition-all";
 
   const labelStyle = "block text-sm font-medium text-gray-400 mb-1";
 

@@ -24,11 +24,14 @@ const AddModal: React.FC<ModalProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed overflow-hidden inset-0 z-50 flex items-center justify-center">
-      <div className="absolute inset-0 " onClick={onClose} />
+    <div className="fixed overflow-hidden inset-0 z-50 flex p-2.5 items-center justify-center">
+      <div
+        className="absolute inset-0 bg-slate-800/30 backdrop-blur-sm"
+        onClick={onClose}
+      />
 
       {/* Modal */}
-      <div className="relative w-full max-w-md rounded-2xl bg-[#0f172a] p-6 shadow-2xl shadow-gray-600 border border-gray-800">
+      <div className="relative w-full max-w-md rounded-2xl bg-[#0f172a] p-6 shadow-2xl shadow-gray-600 border border-gray-800 max-h-[90vh]">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-xl font-semibold text-white">{title}</h2>

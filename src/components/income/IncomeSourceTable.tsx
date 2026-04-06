@@ -2,11 +2,6 @@ import { motion } from "framer-motion";
 import { Edit, Search, Trash2 } from "lucide-react";
 import ActionBTN from "../../UI/buttons/ActionBTN";
 import { useState } from "react";
-import AddModal from "../../UI/modals/AddModal/AddModals";
-import {
-  TransactionForm,
-  type TransactionFormData,
-} from "../../UI/modals/AddModal/AddModalLogic";
 import { MOCK_INCOME_SOURCE_DATA } from "../../data/mockData";
 import { useAppData } from "../../context/AppContext";
 
@@ -14,11 +9,10 @@ const TableHeader = ["Sources", "Categories", "Amount", "Date", "Action"];
 
 const IncomeSourceTable = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [incomeData, setIncomeData] = useState(MOCK_INCOME_SOURCE_DATA);
   const [filteredIncomeData, setFilteredIncomeData] = useState(
     MOCK_INCOME_SOURCE_DATA,
   );
-  const { isAdmin, isModalOpen, setIsModalOpen } = useAppData();
+  const { isAdmin, incomeData, setIsModalOpen } = useAppData();
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const term = e.target.value.toLowerCase();
@@ -31,20 +25,6 @@ const IncomeSourceTable = () => {
     );
 
     setFilteredIncomeData(filtered);
-  };
-
-  const handleAddTransaction = (data: TransactionFormData) => {
-    const newItem = {
-      id: Date.now(),
-      ...data,
-    };
-
-    const updatedData = [newItem, ...incomeData];
-
-    setIncomeData(updatedData);
-    setFilteredIncomeData(updatedData);
-
-    setIsModalOpen(false);
   };
 
   return (
@@ -84,17 +64,6 @@ const IncomeSourceTable = () => {
           )}
         </div>
       </div>
-
-      {/* Modal */}
-      {isAdmin && (
-        <AddModal
-          isOpen={isModalOpen}
-          onClose={() => setIsModalOpen(false)}
-          title="Add New Income"
-        >
-          <TransactionForm onSubmit={handleAddTransaction} type="income" />
-        </AddModal>
-      )}
 
       {/* Table */}
       <div className="overflow-x-auto">

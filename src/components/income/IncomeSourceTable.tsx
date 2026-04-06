@@ -36,7 +36,9 @@ const IncomeSourceTable = () => {
     >
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-center mb-6">
-        <h2 className="text-xl font-semibold text-gray-100">Income Sources</h2>
+        <h2 className="text-xl font-semibold text-gray-100 mb-4 md:mb-1">
+          Income Sources
+        </h2>
 
         <div className="flex flex-col md:flex-row gap-2.5">
           {/* Search */}

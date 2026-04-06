@@ -36,13 +36,16 @@ const ExpenseListTable = () => {
       transition={{ delay: 0.2 }}
     >
       <div className="flex flex-col md:flex-row justify-between items-center mb-6">
-        <h2 className="text-xl font-semibold text-gray-100">Expense List</h2>
-        <div className="flex flex-col md:flex-row justify-around gap-2.5">
-          <div className="relative">
+        <h2 className="text-xl font-semibold text-gray-100 mb-4 md:mb-1">
+          Expense List
+        </h2>
+        <div className="flex flex-col md:flex-row justify-between gap-1.5 md:gap-2.5">
+          <div className="relative ">
+            {/* <div className="relative w-full sm:w-64"> */}
             <input
               type="text"
               placeholder="Search Expenses"
-              className="bg-gray-700 text-white placeholder-gray-400 rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="bg-gray-700 text-white placeholder-gray-400 rounded-lg pl-10 pr-4 py-1.5 xl:py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               onChange={handleSearch}
               value={searchTerm}
             />
@@ -52,13 +55,15 @@ const ExpenseListTable = () => {
             />
           </div>
           {isAdmin && (
-            <ActionBTN
-              size="sm"
-              variant="brand"
-              onClick={() => setIsModalOpen(true)}
-            >
-              Add Expenses
-            </ActionBTN>
+            <div className=" sm:w-auto">
+              <ActionBTN
+                size="sm"
+                variant="brand"
+                onClick={() => setIsModalOpen(true)}
+              >
+                Add Expenses
+              </ActionBTN>
+            </div>
           )}
         </div>
       </div>

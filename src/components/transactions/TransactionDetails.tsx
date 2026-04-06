@@ -118,11 +118,13 @@ const TransactionDetails = (): ReactElement => {
 
   return (
     <div className="bg-gray-800 bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl p-6 border border-gray-700">
-      <div className="flex justify-between p-1">
+      <div className="flex flex-col md:flex-row justify-between items-center p-1">
+        {" "}
+        {/* contain 3 elem */}
         <div className="mb-2 text-gray-100 text-lg font-semibold">
           All Transactions
         </div>
-        <div className="mb-2 flex gap-2.5">
+        <div className="mb-2 flex flex-col md:flex-row items-center gap-2.5">
           <div className="relative">
             <input
               type="text"
@@ -144,6 +146,7 @@ const TransactionDetails = (): ReactElement => {
             )}
           </div>
         </div>
+        {/* hello */}
       </div>
       <div className="overflow-x-auto min-h-80">
         <table className="min-w-full divide-y divide-gray-700">
@@ -212,6 +215,7 @@ const TransactionDetails = (): ReactElement => {
           </div>
         )}
       </div>
+      {/* below */}
       {!isLoading && data.length > 0 && (
         <div className="flex pt-3 mt-3 justify-center gap-1">
           <button
@@ -222,11 +226,11 @@ const TransactionDetails = (): ReactElement => {
             ⏪
           </button>
 
-          <div className="py-1 px-1 m-1">
+          <div className="py-1 px-0 md:px-1 m-0.5 md:m-1">
             {[...Array(noOfPages)].map((_, i) => (
               <span
                 key={i}
-                className={`p-1 m-1 hover:bg-slate-900 rounded-2xl cursor-pointer ${
+                className={`p-0.5 md:p-1 m-0.5 md:m-1  hover:bg-slate-900 rounded-2xl cursor-pointer ${
                   i === currentPage - 1
                     ? "bg-slate-950 rounded-2xl text-amber-100 font-bold"
                     : "bg-transparent"

@@ -1,10 +1,10 @@
 # Zorvyn Frontend Assignment
 
-- [🔗 Live Preview](https://react.dev/learn/react-compiler/)
+- [🔗 Live Preview](https://zorvyn-frontend-nu.vercel.app/)
 
-Techstack :
+**Techstack :**
 
-- React.js + TypeScript + TailwindCSS + Framer Motion + Recharts
+- **React.js + TypeScript + TailwindCSS + Framer Motion + Recharts**
 
 ## Features
 
@@ -12,10 +12,17 @@ Techstack :
 - Time Based Visualization (Monthly Income or Expense, Balance Trend)
 - Categorical Visualization (Income Source Breakdown, Spending Breakdown)
 - Data Comparison Visualization - Income vs Expense graph
-- Role Based UI (Viewer and Admin)
-- Transaction List with Details : Integrated Mock API
-- Implemented pagination in transaction lists
-- Transaction Search : Implemented Debounce search
+- Role Based UI (Viewer and Admin - managed state globally)
+- Transaction List with Details : **Integrated Mock API**
+
+```
+// Integrated Mock API in this file :
+src/components/transactions
+
+```
+
+- Implemented **pagination** in transaction lists
+- Transaction Search : Implemented **Debouncing** in search
 - Handled Layout Shift with Shimmer or Loading effect
 - Insights Section
 - State Management with Context API as less data to handle
@@ -23,9 +30,29 @@ Techstack :
 
 ## Coding Approach
 
-- Highly focused on Code Reusability by creating reusable components such as StatCards (src/UI/cards/StatCards), Modals (src/UI/modals) etc.
-- Focus on writing readable & maintainable code by creating proper folder and file structure with reusable functions (e.g, created custom hooks (src/hook/useDebounce.ts) )
-- Avoid using any 3rd party UI library (like shadcnUI) instead created similar in-house UI components (e.g, src/UI/buttons/ActionBTN.tsx)
+- Highly focused on **Code Reusability by creating reusable components** such as StatCards, Modals etc.
+
+```
+src/UI/cards/StatCards
+
+src/UI/modals
+```
+
+- Focus on writing readable & maintainable code by creating proper folder and file structure with reusable functions (e.g, created custom hooks)
+
+```
+// reusable debouncing function
+src/hook/useDebounce.ts
+
+```
+
+- Avoid using any 3rd party UI library (like shadcnUI) instead created similar in-house UI components
+
+```
+// file
+src/UI/buttons/ActionBTN.tsx
+
+```
 
 # Setup - React + TypeScript + Vite
 

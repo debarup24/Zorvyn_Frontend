@@ -48,7 +48,7 @@ const TransactionDetails = (): ReactElement => {
 
   const [isLoading, setIsLoading] = useState<boolean>(true); // loading for API progress
 
-  const debouncedSearchTerm = useDebounce(searchTerm, 500);
+  const debouncedSearchTerm = useDebounce(searchTerm, 1000);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
